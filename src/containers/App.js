@@ -8,16 +8,18 @@ import Header from "../components/Header";
 class App extends Component {
   constructor() {
     super()
-        this.state = {
+    this.state = {
       robots: [],
-        searchfield: ''
+      searchfield: ''
     }
   }
 
-          componentDidMount() {
-            fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response=> response.json())
-        .then(users => {this.setState({ robots: users})});
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users => {
+        this.setState({ robots: users })
+      });
   }
 
   onSearchChange = (event) => {
@@ -26,22 +28,22 @@ class App extends Component {
 
   render() {
     const { robots, searchfield } = this.state;
-    const filteredRobots = robots.filter(robot =>{
+    const filteredRobots = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchfield.toLowerCase());
     })
     return (
-        <div className='tc'>
-          <Header />
-          <SearchBox searchChange={this.onSearchChange}/>
-          {
-            !robots.length ?
+      <div className='tc'>
+        <Header />
+        <SearchBox searchChange={this.onSearchChange} />
+        {
+          !robots.length ?
             <h1>Loading</h1> :
             <Scroll>
               <CardList robots={filteredRobots} />
             </Scroll>
-          }
-        </div>
-      );
+        }
+      </div>
+    );
   }
 }
 
