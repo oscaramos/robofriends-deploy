@@ -16,8 +16,9 @@ jobs:
       - run: npm install
       - run: npm test
   hithere:
-    - checkout
-    - run: echo "Hellooo"
+    steps:
+      - checkout
+      - run: echo "Hellooo"
 
 workflows:
   version: 2
