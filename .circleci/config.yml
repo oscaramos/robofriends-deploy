@@ -15,9 +15,9 @@ jobs:
       - run: echo "testing stuff"
       - run: npm install
       - run: npm test
-    hithere:
-      - checkout
-      - run: echo "Hellooo"
+  hithere:
+    - checkout
+    - run: echo "Hellooo"
 
 workflows:
   version: 2
