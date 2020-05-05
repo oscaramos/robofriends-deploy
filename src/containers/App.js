@@ -8,16 +8,16 @@ import Header from "../components/Header";
 class App extends Component {
   constructor() {
     super()
-    this.state = {
+        this.state = {
       robots: [],
-      searchfield: ''
+        searchfield: ''
     }
   }
 
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response=> response.json())
-      .then(users => {this.setState({ robots: users})});
+        componentDidMount() {
+            fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response=> response.json())
+        .then(users => {this.setState({ robots: users})});
   }
 
   onSearchChange = (event) => {
